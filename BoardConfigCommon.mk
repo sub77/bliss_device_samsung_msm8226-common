@@ -35,6 +35,8 @@ BLUETOOTH_HCI_USE_MCT := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
+#TARGET_NO_BOOTLOADER := true
+#TARGET_NO_RADIOIMAGE := true
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
@@ -45,24 +47,14 @@ BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
 BOARD_CHARGING_CMDLINE_VALUE := "charger"
 BOARD_CHARGER_ENABLE_SUSPEND := true
- +BOARD_CHARGER_SHOW_PERCENTAGE := true 
-
-# Custom RIL class
-BOARD_RIL_CLASS := ../../../device/samsung/msm8226-common/ril/
+BOARD_CHARGER_SHOW_PERCENTAGE := true 
 
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-# Shader cache config options
-# Maximum size of the  GLES Shaders that can be cached for reuse.
-# Increase the size if shaders of size greater than 12KB are used.
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
-
-# Maximum GLES shader cache size for each app to store the compiled shader
-# binaries. Decrease the size if RAM or Flash Storage size is a limitation
-# of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 # FM
