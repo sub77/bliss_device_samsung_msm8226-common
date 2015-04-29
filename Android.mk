@@ -131,7 +131,7 @@ $(PROV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_WCNSS_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(PROV_SYMLINKS)
 
 PLAYREADY_IMAGES := \
     playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
