@@ -19,8 +19,6 @@ ifeq ($(TARGET_BOARD_PLATFORM),msm8226)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
-
-
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 \
     adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 adsp.mdt
@@ -33,18 +31,6 @@ $(ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware-modem/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(ADSP_SYMLINKS)
-
-DTCPIP_IMAGES := \
-    dtcpip.b00 dtcpip.b01 dtcpip.b02 dtcpip.b03 dtcpip.mdt
-
-DTCPIP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(DTCPIP_IMAGES)))
-$(DTCPIP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "DTCPIP firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(DTCPIP_SYMLINKS)
 
 FIRMWARE_CMNLIB_IMAGES := \
     cmnlib.b00 cmnlib.b01 cmnlib.b02 cmnlib.b03 cmnlib.mdt
@@ -131,19 +117,7 @@ $(PROV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_WCNSS_SYMLINKS)
-
-PLAYREADY_IMAGES := \
-    playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
-
-PLAYREADY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PLAYREADY_IMAGES)))
-$(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Playready firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(PLAYREADY_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(PROV_SYMLINKS)
 
 SECSTOR_IMAGES := \
     sec_stor.b00 sec_stor.b01 sec_stor.b02 sec_stor.b03 sec_stor.mdt
@@ -192,21 +166,6 @@ $(SSHDCPAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SSHDCPAP_SYMLINKS)
-
-TIMA_IMAGES := \
-    tima_atn.b00 tima_atn.b01 tima_atn.b02 tima_atn.b03 tima_atn.mdt \
-    tima_key.b00 tima_key.b01 tima_key.b02 tima_key.b03 tima_key.mdt \
-    tima_lkm.b00 tima_lkm.b01 tima_lkm.b02 tima_lkm.b03 tima_lkm.mdt \
-    tima_pkm.b00 tima_pkm.b01 tima_pkm.b02 tima_pkm.b03 tima_pkm.mdt
-
-TIMA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TIMA_IMAGES)))
-$(TIMA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Tima firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(TIMA_SYMLINKS)
 
 TZPR_IMAGES := \
     tzpr25.b00 tzpr25.b01 tzpr25.b02 tzpr25.b03 tzpr25.mdt
@@ -265,12 +224,5 @@ $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
     $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_mbhc.bin)
 
 
-endif Create links for audcal data files
-$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9320; \
-	ln -sf /data/misc/audio/wcd9320_anc.bin \
-		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_anc.bin;\
-	ln -sf /data/misc/audio/mbhc.bin \
-		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mbhc.bin; \
-	ln -sf /data/misc/audio/wcd9320_mad_audio.bin \
-		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mad_audio.bin)
+endif
 endif
