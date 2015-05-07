@@ -147,6 +147,11 @@ PRODUCT_PACKAGES += \
     qrngd \
     qrngp
 
+# Default.prop overrides to get adb working at boot
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
+
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
