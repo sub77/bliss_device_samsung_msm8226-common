@@ -108,8 +108,8 @@ PRODUCT_PACKAGES += \
     keystore.msm8226
 
 # Lights
-PRODUCT_PACKAGES += \
-    lights.msm8226
+#PRODUCT_PACKAGES += \
+#    lights.msm8226
 
 # Media
 PRODUCT_COPY_FILES += \
