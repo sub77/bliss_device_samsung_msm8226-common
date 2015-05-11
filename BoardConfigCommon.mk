@@ -89,6 +89,9 @@ COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 # Flip cover sensor
 BOARD_HAS_EXTENDED_SWITCH := true
 
+# Skip droiddoc build to save build time
+BOARD_SKIP_ANDROID_DOC_BUILD := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
