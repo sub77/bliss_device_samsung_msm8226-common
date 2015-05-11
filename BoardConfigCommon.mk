@@ -86,6 +86,9 @@ TARGET_POWERHAL_VARIANT := qcom
 # Recovery fast wipe
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
+# Flip cover sensor
+BOARD_HAS_EXTENDED_SWITCH := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
