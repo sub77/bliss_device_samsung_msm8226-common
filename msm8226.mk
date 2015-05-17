@@ -95,8 +95,8 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 # GPS
-PRODUCT_PACKAGES += \
-    gps.msm8226
+#PRODUCT_PACKAGES += \
+#    gps.msm8226
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
@@ -108,8 +108,8 @@ PRODUCT_PACKAGES += \
     keystore.msm8226
 
 # Lights
-PRODUCT_PACKAGES += \
-    lights.msm8226
+#PRODUCT_PACKAGES += \
+#    lights.msm8226
 
 # Media
 PRODUCT_COPY_FILES += \
